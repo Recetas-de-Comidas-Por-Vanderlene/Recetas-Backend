@@ -60,23 +60,18 @@ Recetas-Backend/
 ├── pom.xml
 ├── src/
 │   ├── main/
-│   │   ├── java/com/saboresmundo/recetas/
-│   │   │   ├── config/           # Configuraciones globales y de seguridad
-│   │   │   ├── controller/       # Controladores REST
-│   │   │   ├── docs/             # Documentación interna
-│   │   │   ├── dto/              # Objetos de transferencia de datos
-│   │   │   ├── model/            # Entidades del dominio
-│   │   │   ├── repository/       # Interfaces de acceso a datos
-│   │   │   ├── security/         # Seguridad y JWT
-│   │   │   └── service/          # Lógica de negocio
-│   │   └── resources/
-│   │       └── application.properties
-│   └── test/
-│       ├── java/com/saboresmundo/recetas/
-│       │   ├── controller/        # Tests de controladores
-│       │   ├── service/           # Tests de servicios
-│       │   └── TestDataUtil.java  # Utilidades para tests
-│       └── resources/
+│      ├── java/com/saboresdelmundo/recetas/
+│      │   ├── config/           # Configuraciones globales y de seguridad
+│      │   ├── controller/       # Controladores REST
+│      │   ├── docs/             # Documentación interna
+│      │   ├── dto/              # Objetos de transferencia de datos
+│      │   ├── model/            # Entidades del dominio
+│      │   ├── repository/       # Interfaces de acceso a datos
+│      │   ├── security/         # Seguridad y JWT
+│      │   └── service/          # Lógica de negocio
+│      └── resources/
+│          └── application.properties
+│
 └── target/                        # Archivos generados por Maven
 ```
 
@@ -99,9 +94,6 @@ Recetas-Backend/
 - `mvn clean package` — Genera el JAR ejecutable
 - `mvn test` — Ejecuta los tests
 
-## 🌐 API Endpoints
-
-La documentación completa de los endpoints se encuentra en [`src/main/java/com/saboresmundo/recetas/docs/endpoints.md`](src/main/java/com/saboresmundo/recetas/docs/endpoints.md).
 
 Ejemplo de endpoints principales:
 
@@ -138,16 +130,6 @@ Ejemplo de endpoints principales:
 - `POST /api/comentarios` — Crear comentario
 - `DELETE /api/comentarios/{id}` — Eliminar comentario
 
-## 🧪 Pruebas
-
-El proyecto incluye pruebas unitarias y de integración para controladores y servicios.
-
-```bash
-mvn test
-```
-
-- Los reportes de cobertura se generan en `target/site/jacoco/index.html`.
-- Los resultados de los tests se encuentran en `target/surefire-reports/`.
 
 ## 🤝 Contribución
 
@@ -159,9 +141,11 @@ mvn test
 
 ## 👩‍💻 Autor
 
-**Equipo Sabores del Mundo**  
-Contacto: saboresmundo@ejemplo.com
+**Vanderlene Oliveira**
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?logo=linkedin&logoColor=white&style=flat)](https://linkedin.com/in/vanderleneo)
+[![GitHub](https://img.shields.io/badge/-GitHub-181717?logo=github&logoColor=white&style=flat)](https://github.com/vanderleneo)
 
 ## 📄 Licencia
 
-Este proyecto es de código abierto y está disponible bajo la licencia MIT.
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
