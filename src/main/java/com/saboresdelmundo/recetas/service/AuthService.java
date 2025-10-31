@@ -1,13 +1,13 @@
 package com.saboresdelmundo.recetas.service;
 
-import com.saboresdelmundo.recetas.model.Usuario;
-import com.saboresdelmundo.recetas.repository.UsuarioRepository;
-//import com.saboresmundo.recetas.dto.RegisterRequest;
-import com.saboresdelmundo.recetas.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.saboresdelmundo.recetas.model.Usuario;
+import com.saboresdelmundo.recetas.repository.UsuarioRepository;
+import com.saboresdelmundo.recetas.security.JwtUtil;
 
 @Service
 public class AuthService {
@@ -73,6 +73,7 @@ public class AuthService {
         // Devuelve token, email y nombre en el objeto JSON
         java.util.Map<String, Object> response = new java.util.HashMap<>();
         response.put("token", token);
+        response.put("id", usuario.getId());
         response.put("email", usuario.getEmail());
         response.put("nombre", usuario.getNombre());
         return ResponseEntity.ok(response);

@@ -5,7 +5,8 @@ import com.saboresdelmundo.recetas.dto.RecetaResponse;
 import com.saboresdelmundo.recetas.model.Ingrediente;
 import com.saboresdelmundo.recetas.model.Pais;
 import com.saboresdelmundo.recetas.model.PasoReceta;
-import com.saboresdelmundo.recetas.model.Receta;importcom.saboresdelmundo.recetas.model.RecetaIngrediente;
+import com.saboresdelmundo.recetas.model.Receta;
+import com.saboresdelmundo.recetas.model.RecetaIngrediente;
 import com.saboresdelmundo.recetas.model.Usuario;
 import com.saboresdelmundo.recetas.repository.IngredienteRepository;
 import com.saboresdelmundo.recetas.repository.PaisRepository;
@@ -51,6 +52,15 @@ public class RecetaService {
             return recetaRepository.findByTituloContainingIgnoreCase(filtro);
         }
         return recetaRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public List<RecetaResponse> obtenerRecetasPorUsuario(Long usuarioId) {
+        logger.info("Buscando recetas para el usuario con ID: {}", usuarioId);
+        List<Receta> recetas = recetaRepository.findByUsuarioId(usuarioId);
+        return recetas.stream()
+                .map(RecetaResponse::new)
+                .toList();
     }
 
     @Transactional(readOnly = true)
