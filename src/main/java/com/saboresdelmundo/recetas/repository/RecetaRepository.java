@@ -1,13 +1,13 @@
 package com.saboresdelmundo.recetas.repository;
 
-import java.util.List;
-
+import com.saboresdelmundo.recetas.model.Receta;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import com.saboresdelmundo.recetas.model.Receta;
+import java.util.List;
 
 @Repository
 public interface RecetaRepository extends JpaRepository<Receta, Long> {
     List<Receta> findByTituloContainingIgnoreCase(String titulo);
+
+    List<Receta> findByUsuarioId(Long usuarioId);
 }
