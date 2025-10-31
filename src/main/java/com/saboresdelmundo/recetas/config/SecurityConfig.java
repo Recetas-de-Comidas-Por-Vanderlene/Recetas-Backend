@@ -53,7 +53,6 @@ public class SecurityConfig {
         return authConfig.getAuthenticationManager();
     }
 
-    // Configuración CORS global para permitir peticiones desde el frontend
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
