@@ -9,11 +9,11 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
-                .allowedOrigins("http://localhost:5173") // URL de tu frontend
+                .allowedOrigins("http://localhost:5173")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
-                .exposedHeaders("Authorization") // Permite que el frontend acceda al header Authorization
+                .exposedHeaders("Authorization")
                 .allowCredentials(true)
-                .maxAge(3600); // Cache de preflight por 1 hora
+                .maxAge(3600);
     }
 }
