@@ -4,6 +4,7 @@ import com.saboresdelmundo.recetas.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -39,7 +40,10 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/test/auth").permitAll()
                         .requestMatchers("/api/usuarios/**").hasAuthority("ADMIN")
-                        .requestMatchers("/api/recetas/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/recetas/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/recetas").authenticated()
+                        .requestMatchers(HttpMethod.PUT, "/api/recetas/**").authenticated()
+                        .requestMatchers(HttpMethod.DELETE, "/api/recetas/**").authenticated()
                         .requestMatchers("/api/paises/**").authenticated()
                         .requestMatchers("/api/ingredientes/**").authenticated()
                         .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
@@ -53,6 +57,7 @@ public class SecurityConfig {
         return authConfig.getAuthenticationManager();
     }
 
+    // Configuración CORS global para permitir peticiones desde el frontend
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
